@@ -41,7 +41,7 @@ jobs:
     
       - name: Base SHA
         id: base-sha
-        run: echo "sha=$(git rev-parse origin/master)" >> $GITHUB_OUTPUT
+        run: echo "sha=$(git rev-parse origin/main)" >> $GITHUB_OUTPUT
       
       - name: Get Changed Directories
         id: changed-directories
