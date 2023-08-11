@@ -1,0 +1,5 @@
+shared: &shared
+  - .github/**
+common:
+  - *shared
+  - .gitignore
