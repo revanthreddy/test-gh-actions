@@ -40,7 +40,7 @@ jobs:
 
       - name: List all changed files
         run: |
-          for file in ${{ steps.changed-files-dir-names.outputs. }}; do
+          for file in ${{ steps.changed-files-dir-names.outputs.all_changed_directories }}; do
             echo "$file was changed"
             cd $file
             ls
