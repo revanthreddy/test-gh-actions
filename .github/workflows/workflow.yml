@@ -55,7 +55,7 @@ jobs:
         run: |
           echo "CHANGED MODULES"
           echo '${{ toJSON(steps.changed-files-dir-names.outputs.all_changed_files) }}'
-          sh scripts/publish-versions.sh ${{ steps.changed-files-dir-names.outputs.all_changed_files }}
+          sh ~/scripts/publish-versions.sh ${{ steps.changed-files-dir-names.outputs.all_changed_files }}
           for directory in ${{ steps.changed-files-dir-names.outputs.all_changed_files }}; do
             echo "FILES UPDATED in $directory"
           done
