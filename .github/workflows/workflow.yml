@@ -38,6 +38,7 @@ jobs:
         uses: tj-actions/changed-files@v37
         with:
           dir_names: "true"
+          files_ignore: .github/*
 
         # NOTE: `since_last_remote_commit: true` is implied by default and falls back to the previous local commit.
 
@@ -50,5 +51,5 @@ jobs:
       - name: List all changed directories
         run: |
           echo "CHANGED OUTPUT DIRECTORIES"
-          echo '${{ toJSON(steps.changed-files-dir-names.outputs) }}'
+          echo '${{ toJSON(steps.changed-files-dir-names.outputs.all_changed_files) }}'
 
