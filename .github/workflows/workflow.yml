@@ -38,7 +38,9 @@ jobs:
         uses: tj-actions/changed-files@v37
         with:
           dir_names: "true"
-          files_ignore: .github/*
+          files_ignore:
+          - .github/*
+          - providers/aws/modules/my-module*
 
         # NOTE: `since_last_remote_commit: true` is implied by default and falls back to the previous local commit.
 
