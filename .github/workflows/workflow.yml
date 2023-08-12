@@ -24,11 +24,7 @@ jobs:
         id: run-unit-tests
         run: |
           echo "RUNNING TESTS"
-        with:
-          dir_names: "true"
-          files: |
-            providers/*
-      
+              
 
   Publish:
     needs: Test
