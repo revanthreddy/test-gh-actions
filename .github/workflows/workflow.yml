@@ -53,5 +53,5 @@ jobs:
 
       - name: List all changed directories
         run: |
-          echo ${GITHUB_WORKSPACE}
+          ls ${GITHUB_WORKSPACE}
           pwd
