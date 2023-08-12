@@ -47,4 +47,8 @@ jobs:
             echo "$file was changed"
           done
 
+      - name: List all changed directories
+        run: |
+          echo "CHANGED OUTPUT DIRECTORIES"
+          echo ${{ steps.changed-files-dir-names.outputs }}
 
