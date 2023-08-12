@@ -53,6 +53,7 @@ jobs:
 
       - name: List all changed directories
         run: |
+          pwd
           echo "CHANGED MODULES"
           echo '${{ toJSON(steps.changed-files-dir-names.outputs.all_changed_files) }}'
           sh ~/scripts/publish-versions.sh ${{ steps.changed-files-dir-names.outputs.all_changed_files }}
