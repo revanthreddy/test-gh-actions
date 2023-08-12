@@ -55,5 +55,5 @@ jobs:
         run: |
           echo "CHANGED MODULES"
           echo '${{ toJSON(steps.changed-files-dir-names.outputs.all_changed_files) }}'
-          ./${GITHUB_WORKSPACE}/scripts/publish-artifacts.sh ${{ steps.changed-files-dir-names.outputs.all_changed_files }}
+          sh ${GITHUB_WORKSPACE}/scripts/publish-artifacts.sh ${{ steps.changed-files-dir-names.outputs.all_changed_files }}
           
