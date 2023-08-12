@@ -53,7 +53,7 @@ jobs:
       - name: List all changed directories
         run: |
           echo "CHANGED OUTPUT DIRECTORIES"
-#          echo '${{ toJSON(steps.changed-files-dir-names.outputs.all_changed_files) }}'
+          echo '${{ toJSON(steps.changed-files-dir-names.outputs.all_changed_files) }}'
           for directory in ${{ steps.changed-files-dir-names.outputs.all_changed_files }}; do
             echo "FILES UPDATED in $directory"
           done
