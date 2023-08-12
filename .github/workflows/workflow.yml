@@ -49,5 +49,5 @@ jobs:
           echo "BELOW ARE THE UPDATED MODULES"
           echo "-----------------------------"
           echo '${{ toJSON(steps.identify-updated-modules.outputs.all_changed_files) }}'
-          sh ${GITHUB_WORKSPACE}/scripts/publish-artifacts.sh ${{ steps.changed-files-dir-names.outputs.all_changed_files }}
+          sh ${GITHUB_WORKSPACE}/scripts/publish-artifacts.sh ${{ steps.identify-updated-modules.outputs.all_changed_files }}
           
