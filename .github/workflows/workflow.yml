@@ -15,16 +15,11 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  defaults:
-
-    run:
-      shell: bash
 
   Test:
     runs-on: ubuntu-latest
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - us
       - name: Run tests for all modules
         id: run-unit-tests
         run: |
