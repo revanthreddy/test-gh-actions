@@ -50,5 +50,5 @@ jobs:
       - name: List all changed directories
         run: |
           echo "CHANGED OUTPUT DIRECTORIES"
-          echo ${{ toJSON( steps.changed-files-dir-names.outputs) }}
+          echo '${{ toJSON(steps.changed-files-dir-names.outputs) }}'
 
