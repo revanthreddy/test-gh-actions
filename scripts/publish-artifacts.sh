@@ -5,7 +5,7 @@ printf "TOTAL NUMBER OF MODULES THAT WILL BE PROCESSED : %d\n" $#
 version_file_name="version.json"
 
 # Get the command line arguments
-module_paths=$@
+module_paths=$*
 # Loop over the arguments
 for module_path in $module_paths; do
 
@@ -40,6 +40,6 @@ for module_path in $module_paths; do
 
   else
     # The file does not exist
-    printf "\tVersion file does not exist for %s. IGNORING %s\n" "$module_path" "$module_path"
+    printf "\tVersion file does not exist. IGNORING %s\n" "$module_path"
   fi
 done
