@@ -19,7 +19,7 @@ env:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
 
-  Test:
+  test:
     runs-on: ubuntu-latest
     steps:
       - name: Run tests for all modules
@@ -28,7 +28,7 @@ jobs:
           echo "RUNNING TESTS"
               
 
-  Publish:
+  publish:
 #    needs: Test
 
     runs-on: ubuntu-latest
