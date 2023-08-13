@@ -10,7 +10,7 @@ module_paths=$@
 for module_path in $module_paths; do
 
   # Check if the file exists in the directory
-  printf "Now processing files in %s ... \n\n" $module_path
+  printf "\nNow processing files in %s ... \n" $module_path
   if [ -f "$module_path/$version_file_name" ]; then
     # Get the key to extract
     key="version"
