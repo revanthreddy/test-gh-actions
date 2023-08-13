@@ -30,9 +30,8 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    # Sequence of tasks that will be executed as part of the job
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
         with:
           fetch-depth: 0  # OR "2" -> To retrieve the preceding commit.
 
@@ -50,4 +49,3 @@ jobs:
           echo "-----------------------------"
           echo '${{ toJSON(steps.identify-updated-modules.outputs.all_changed_files) }}'
           sh ${GITHUB_WORKSPACE}/scripts/publish-artifacts.sh ${{ steps.identify-updated-modules.outputs.all_changed_files }}
-          
