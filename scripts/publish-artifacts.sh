@@ -40,6 +40,6 @@ for module_path in $module_paths; do
 
   else
     # The file does not exist
-    printf "\tVersion file does not exist for %s. IGNORING it\n" $module_path
+    printf "\tVersion file does not exist for %s. IGNORING %s\n" "$module_path" "$module_path"
   fi
 done
