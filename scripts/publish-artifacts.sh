@@ -1,6 +1,6 @@
 #!/bin/bash
 
-printf "Total number of modules that will be processed : %d\n\n" $#
+printf "TOTAL NUMBER OF MODULES THAT WILL BE PROCESSED : %d\n" $#
 
 version_file_name="version.json"
 
@@ -10,7 +10,7 @@ module_paths=$@
 for module_path in $module_paths; do
 
   # Check if the file exists in the directory
-  printf "\nNow processing files in %s ... \n" $module_path
+  printf "\NOW PROCESSING FILES IN %s ... \n" $module_path
   if [ -f "$module_path/$version_file_name" ]; then
     # Get the key to extract
     key="version"
