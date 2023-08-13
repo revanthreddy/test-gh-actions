@@ -4,37 +4,28 @@ echo "Total number of modules : $#"
 
 version_file_name="version.json"
 
-# Define the function to tokenize a string
-function tokenize_string() {
-  # Get the string to tokenize
-  string="$1"
-
-  # Get the delimiter
-  delimiter="$2"
-
-  # Split the string on the delimiter
-  tokens=$(echo $string | tr $delimiter "\n")
-
-  # Return the tokens
-  return $tokens
-}
-
 # Get the command line arguments
-args=$@
-
+module_paths=$@
 # Loop over the arguments
-for arg in $args; do
-  # Tokenize the argument
+for module_path in $module_paths; do
+
   # Check if the file exists in the directory
-  if [ -f "$arg/$version_file_name" ]; then
-    # The file exists
-    echo "VERSION file present in $arg"
+
+  if [ -f "$module_path/$version_file_name" ]; then
+    echo "FOUND FILE"
+    # Get the key to extract
+    key="version"
+
+    # Open the JSON file
+    module_version_file=$(cat $module_path/$version_file_name)
+
+    # Get the value for the key
+    value=$(echo $module_json_file | jq ".$key")
+
+    # Print the value
+    echo $value
   else
     # The file does not exist
-    echo "The file does not exist."
+    echo "The file does not exist. IGNORING $module_path"
   fi
-  tokens=$(tokenize_string $arg "/")
-
-  # Print the tokens
-  echo $tokens
 done

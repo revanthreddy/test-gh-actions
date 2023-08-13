@@ -45,6 +45,7 @@ jobs:
 
       - name: Publish updated modules
         run: |
+          apt-get install jq
           echo "BELOW ARE THE UPDATED MODULES"
           echo "-----------------------------"
           sh ${GITHUB_WORKSPACE}/scripts/publish-artifacts.sh ${{ steps.identify-updated-modules.outputs.all_changed_files }}
