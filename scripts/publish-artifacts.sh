@@ -1,6 +1,6 @@
 #!/bin/bash
 
-printf "Total number of modules that will be processed : %d\n" $#
+printf "Total number of modules that will be processed : %d\n\n\n" $#
 
 version_file_name="version.json"
 
