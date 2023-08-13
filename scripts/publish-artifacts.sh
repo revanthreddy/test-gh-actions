@@ -18,7 +18,7 @@ for module_path in $module_paths; do
 
     # Open the JSON file
     module_version_file=$(cat "$module_path/$version_file_name")
-    echo "-----------"
+    cat module_version_file
     # Get the value for the key
     value=$(echo $module_json_file | jq ".$key")
 
