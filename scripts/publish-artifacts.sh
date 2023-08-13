@@ -13,7 +13,7 @@ module_paths=$@
 for module_path in $module_paths; do
 
   # Check if the file exists in the directory
-
+  echo "Now processing files in $module_path ..."
   if [ -f "$module_path/$version_file_name" ]; then
     # Get the key to extract
     key="version"
@@ -23,7 +23,7 @@ for module_path in $module_paths; do
     version_number=$(echo "$module_version_file" | jq ".$key")
 
     if [ -z "$version_number" ]; then
-      echo "The key $key does not exist in the JSON file $version_file_name."
+      echo "\tThe key $key does not exist in the JSON file $version_file_name."
       continue
     fi
     # ZIP THE CONTENTS WITH VERSION NAME BEING THE ZIP FILE NAME
@@ -39,11 +39,11 @@ for module_path in $module_paths; do
     # Remove the temporary directory
     rm -rf "$temp_directory"
     # PUBLISH TO JFROG CODE GOES HERE
-    echo "Version : $version_number"
+    echo "\tPublished $version_number.zip"
 
 
   else
     # The file does not exist
-    echo "Version file does not exist for $module_path. IGNORING it"
+    echo "\tVersion file does not exist for $module_path. IGNORING it"
   fi
 done
