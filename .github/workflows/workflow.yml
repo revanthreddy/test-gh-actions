@@ -48,8 +48,6 @@ jobs:
 
       - name: Publish updated modules
         run: |
-          echo "BELOW ARE THE UPDATED MODULES"
-          echo "-----------------------------"
           sh ${GITHUB_WORKSPACE}/scripts/publish-artifacts.sh ${{ steps.identify-updated-modules.outputs.all_changed_files }}
 
 #          echo '${{ toJSON(steps.identify-updated-modules.outputs.all_changed_files) }}'

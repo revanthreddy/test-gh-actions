@@ -1,9 +1,6 @@
 #!/bin/bash
 
-
-
-
-echo "Total number of modules : $#"
+printf "Total number of modules that will be processed : %d\n" $#
 
 version_file_name="version.json"
 
@@ -13,7 +10,7 @@ module_paths=$@
 for module_path in $module_paths; do
 
   # Check if the file exists in the directory
-  echo "Now processing files in $module_path ..."
+  printf "Now processing files in %s ... \n" $module_path
   if [ -f "$module_path/$version_file_name" ]; then
     # Get the key to extract
     key="version"
@@ -23,7 +20,7 @@ for module_path in $module_paths; do
     version_number=$(echo "$module_version_file" | jq ".$key")
 
     if [ -z "$version_number" ]; then
-      echo "\tThe key $key does not exist in the JSON file $version_file_name."
+      printf "\tThe key %s does not exist in the JSON file %s.\n" $key $version_file_name
       continue
     fi
     # ZIP THE CONTENTS WITH VERSION NAME BEING THE ZIP FILE NAME
@@ -39,11 +36,11 @@ for module_path in $module_paths; do
     # Remove the temporary directory
     rm -rf "$temp_directory"
     # PUBLISH TO JFROG CODE GOES HERE
-    echo "\tPublished $version_number.zip"
+    printf "\tPublished %s.zip\n" $version_number
 
 
   else
     # The file does not exist
-    echo "\tVersion file does not exist for $module_path. IGNORING it"
+    printf "\tVersion file does not exist for %s. IGNORING it\n" $module_path
   fi
 done
