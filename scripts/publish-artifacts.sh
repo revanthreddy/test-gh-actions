@@ -1,6 +1,6 @@
 #!/bin/bash
 
-printf "Total number of modules that will be processed : %d\n\n\n" $#
+printf "Total number of modules that will be processed : %d\n\n" $#
 
 version_file_name="version.json"
 
@@ -10,7 +10,7 @@ module_paths=$@
 for module_path in $module_paths; do
 
   # Check if the file exists in the directory
-  printf "Now processing files in %s ... \n" $module_path
+  printf "Now processing files in %s ... \n\n" $module_path
   if [ -f "$module_path/$version_file_name" ]; then
     # Get the key to extract
     key="version"
@@ -37,7 +37,7 @@ for module_path in $module_paths; do
     rm -rf "$temp_directory"
     # PUBLISH TO JFROG CODE GOES HERE
     printf "\tPublished %s.zip\n" $version_number
-
+    printf "------------------------------------\n"
 
   else
     # The file does not exist
