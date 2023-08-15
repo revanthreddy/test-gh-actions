@@ -36,7 +36,7 @@ for module_path in $module_paths; do
     # Remove the temporary directory
     rm -rf "$temp_directory"
     # PUBLISH TO JFROG CODE GOES HERE
-    printf "\tPublished %s.zip\n" $version_number
+    printf "\tPublished %s.zip\n" "$version_number"
 
   else
     # The file does not exist
