@@ -51,6 +51,8 @@ jobs:
           sh ${GITHUB_WORKSPACE}/scripts/publish-artifacts.sh ${{ steps.identify-updated-modules.outputs.all_changed_files }}
           input_string="This is a sample input string for tokenization"
           IFS=" " read -ra tokens <<< "$input_string"
-
+          num_tokens=${#tokens[@]}
+          last_element="${tokens[num_tokens-1]}"
+          echo "Last element: $last_element"
 #          sh ${GITHUB_WORKSPACE}/scripts/bla.sh
 #          echo '${{ toJSON(steps.identify-updated-modules.outputs.all_changed_files) }}'
