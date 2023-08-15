@@ -2,12 +2,14 @@
 
 printf "TOTAL NUMBER OF MODULES THAT WILL BE PROCESSED : %d\n" $#
 
-get_last_element() {
+construct_artifact_path_and_get_module() {
     local input_string="$1"
     IFS="/" read -ra tokens <<< "$input_string"
     local num_tokens=${#tokens[@]}
-    local last_element="${tokens[num_tokens-1]}"
-    echo "$last_element"
+    local provider_name="${tokens[1]}"
+    local module_name="${tokens[num_tokens-1]}"
+    local values=("providers/$provider_name/modules/$module_name" "$module_name")
+    echo "${values[@]}"
 }
 
 
@@ -18,7 +20,10 @@ module_paths=$*
 # Loop over the arguments
 for module_path in $module_paths; do
 
-  get_last_element "$module_path"
+  result_array=($(construct_artifact_path_and_get_module "$module_path"))
+  artifact_path="${result_array[0]}"
+  module_name="${result_array[1]}"
+
   # Check if the file exists in the directory
   printf "\nNOW PROCESSING FILES IN %s ... \n" $module_path
   if [ -f "$module_path/$version_file_name" ]; then
