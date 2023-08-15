@@ -49,6 +49,6 @@ jobs:
       - name: Publish updated modules
         run: |
           sh ${GITHUB_WORKSPACE}/scripts/publish-artifacts.sh ${{ steps.identify-updated-modules.outputs.all_changed_files }}
-          sh ${GITHUB_WORKSPACE}/scripts/token.sh
+#          sh ${GITHUB_WORKSPACE}/scripts/token.sh
           sh ${GITHUB_WORKSPACE}/scripts/bla.sh
 #          echo '${{ toJSON(steps.identify-updated-modules.outputs.all_changed_files) }}'
