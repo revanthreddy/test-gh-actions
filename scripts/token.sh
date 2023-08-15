@@ -3,7 +3,7 @@
 
 
 function tokenize_string() {
-  token_array=()
+  array=()
   # Get the string to tokenize
   string=$1
 
@@ -13,16 +13,16 @@ function tokenize_string() {
   # Split the string on the delimiter
   tokens=$(echo $string | tr "$delimiter" '\n')
 
-  # Add the tokens to the token_array
+  # Add the tokens to the array
   for token in $tokens; do
-    token_array+=($token)
+    array+=($token)
   done
 
-  # Get the size of the token_array
-  size="${#token_array[@]}"
+  # Get the size of the array
+  size="${#array[@]}"
 
-  # Print the size of the token_array
-  echo "The size of the token_array is: $size"
+  # Print the size of the array
+  echo "The size of the array is: $size"
 }
 
 # Call the function
