@@ -2,6 +2,15 @@
 
 printf "TOTAL NUMBER OF MODULES THAT WILL BE PROCESSED : %d\n" $#
 
+get_last_element() {
+    local input_string="$1"
+    IFS="/" read -ra tokens <<< "$input_string"
+    local num_tokens=${#tokens[@]}
+    local last_element="${tokens[num_tokens-1]}"
+    echo "$last_element"
+}
+
+
 version_file_name="version.json"
 
 # Get the command line arguments
@@ -9,6 +18,7 @@ module_paths=$*
 # Loop over the arguments
 for module_path in $module_paths; do
 
+  get_last_element "$module_path"
   # Check if the file exists in the directory
   printf "\nNOW PROCESSING FILES IN %s ... \n" $module_path
   if [ -f "$module_path/$version_file_name" ]; then
