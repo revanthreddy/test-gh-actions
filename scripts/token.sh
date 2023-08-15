@@ -1,8 +1,9 @@
 #!/bin/bash
 
-array=()
+
 
 function tokenize_string() {
+  array=()
   # Get the string to tokenize
   string=$1
 
