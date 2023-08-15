@@ -49,6 +49,7 @@ jobs:
       - name: Publish updated modules
         run: |
           sh ${GITHUB_WORKSPACE}/scripts/publish-artifacts.sh ${{ steps.identify-updated-modules.outputs.all_changed_files }}
+          bash ${GITHUB_WORKSPACE}/scripts/bla.sh
           input_string="This is a sample input string for tokenization"
           IFS=" " read -ra tokens <<< "$input_string"
           num_tokens=${#tokens[@]}
