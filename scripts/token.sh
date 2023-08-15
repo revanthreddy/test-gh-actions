@@ -18,7 +18,7 @@ function tokenize_string() {
   done
 
   # Get the size of the array
-  size=${#array[@]}
+  size="${#array[@]}"
 
   # Print the size of the array
   echo "The size of the array is: $size"
