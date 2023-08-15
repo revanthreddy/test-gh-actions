@@ -1,4 +1,4 @@
 #!/bin/bash
 
 echo $SHELL
-my_array=()
+#my_array=()
