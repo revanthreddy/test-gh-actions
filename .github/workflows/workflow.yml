@@ -50,6 +50,7 @@ jobs:
         run: |
           python --version
           python3 --version
+          pytest -v
           python ${GITHUB_WORKSPACE}/scripts/publish/hello.py
           bash ${GITHUB_WORKSPACE}/scripts/publish-artifacts.sh ${{ steps.identify-updated-modules.outputs.all_changed_files }}
           bash ${GITHUB_WORKSPACE}/scripts/bla.sh
