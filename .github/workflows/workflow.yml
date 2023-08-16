@@ -50,7 +50,7 @@ jobs:
         run: |
           python --version
           python3 --version
-          python ${GITHUB_WORKSPACE}/publish/hello.py
+          python ${GITHUB_WORKSPACE}/scripts/publish/hello.py
           bash ${GITHUB_WORKSPACE}/scripts/publish-artifacts.sh ${{ steps.identify-updated-modules.outputs.all_changed_files }}
           bash ${GITHUB_WORKSPACE}/scripts/bla.sh
 #          input_string="This is a sample input string for tokenization"
