@@ -51,6 +51,7 @@ jobs:
           python-version: '3.x'
       - name: Install dependencies
         run: |
+          cd ${GITHUB_WORKSPACE}/scripts
           python -m venv venv  
           source venv/bin/activate  
           python -m pip install --upgrade pip  
