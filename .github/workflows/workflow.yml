@@ -60,8 +60,7 @@ jobs:
 
       - name: Publish updated modules
         run: |
-          python --version
-          python3 --version
+          source ${GITHUB_WORKSPACE}/scripts/publish/bin/activate
           pytest -v
           python ${GITHUB_WORKSPACE}/scripts/publish/hello.py
           bash ${GITHUB_WORKSPACE}/scripts/publish-artifacts.sh ${{ steps.identify-updated-modules.outputs.all_changed_files }}
