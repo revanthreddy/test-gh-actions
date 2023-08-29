@@ -1,20 +1,18 @@
-on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
-  workflow_call:
-    inputs:
-      username:
-        description: 'A username passed from the caller workflow'
-        default: 'john-doe'
-        required: false
-        type: string
-
-jobs:
-  print-username:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Print the input name to STDOUT
-        run: echo The username is ${{ github.event.inputs.username }} 
+name: Print Username  
+  
+on:  
+  workflow_dispatch:  
+    inputs:  
+      username:  
+        description: 'A username passed from the caller workflow'  
+        default: 'john-doe'  
+        required: false  
+        type: string  
+  
+jobs:  
+  print-username:  
+    runs-on: ubuntu-latest  
+  
+    steps:  
+      - name: Print the input name to STDOUT  
+        run: echo The username is ${{ github.event.inputs.username }}  
