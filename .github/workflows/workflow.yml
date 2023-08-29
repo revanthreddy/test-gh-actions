@@ -11,11 +11,12 @@ on:
     branches: [ "main" ]
   workflow_call:
     inputs:
-      vault-address:
-        type: string
-        description: For workflow testing purposes
+      username:
+        description: 'A username passed from the caller workflow'
+        default: 'john-doe'
         required: false
-        default: https://vault.drw
+        type: string
+
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -34,6 +35,9 @@ jobs:
         run: |
           echo "RUNNING TESTS"
           echo ${{ inputs.vault-address }}
+      - name: Print the input name to STDOUT
+        run: echo The username is ${{ inputs.username }}
+
               
 
   publish:
