@@ -1,18 +1,25 @@
-name: Print Username  
+name: Example workflow using HashiCorp Vault  
   
 on:  
-  workflow_dispatch:  
-    inputs:  
-      username:  
-        description: 'A username passed from the caller workflow'  
-        default: 'john-doe'  
-        required: false  
-        type: string  
+  push:  
+    branches:  
+      - main  
   
 jobs:  
-  print-username:  
+  example:  
+    name: Fetch secrets with Vault  
     runs-on: ubuntu-latest  
   
     steps:  
-      - name: Print the input name to STDOUT  
-        run: echo The username is ${{ github.event.inputs.username }}  
+    - name: Check out code  
+      uses: actions/checkout@v2  
+  
+    - name: Fetch secret  
+      uses: hashicorp/vault-action@v2  
+      with:  
+        url: ${{ env.VAULT_URL }}  
+        token: ${{ secrets.VAULT_TOKEN }}  
+        secrets: |  
+          secret/data/my/secret mySecretKey | MY_SECRET_ENV  
+      env:  
+        VAULT_URL: 'https://my.vault.server:8200'  
