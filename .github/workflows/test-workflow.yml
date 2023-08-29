@@ -14,12 +14,18 @@ jobs:
     - name: Check out code  
       uses: actions/checkout@v2  
   
-    - name: Fetch secret  
-      uses: hashicorp/vault-action@v2  
-      with:  
-        url: ${{ env.VAULT_URL }}  
-        token: ${{ secrets.VAULT_TOKEN }}  
-        secrets: |  
-          secret/data/my/secret mySecretKey | MY_SECRET_ENV  
-      env:  
-        VAULT_URL: 'https://my.vault.server:8200'  
+    - name: Retrieve artifactory token from Vault
+      uses: hashicorp/vault-action@v2
+      with:
+        exportToken: true
+        tlsSkipVerify: true
+        url: ${{ env.vault-address }}
+        namespace: ${{ env.vault-namespace }}
+        role: ${{ env.vault-role }}
+        method: jwt
+        secrets: ${{ env.vault-aws-secrets }}
+      env:
+        vault-address: https://vault.drw
+        vault-namespace: cats/secrets-dev
+        vault-role: secrets-read
+        vault-aws-secrets: secrets-dev/data/artifactory token | JF_ACCESS_TOKEN_TEST ;  
