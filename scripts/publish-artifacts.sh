@@ -2,7 +2,7 @@
 
 printf "TOTAL NUMBER OF MODULES THAT WILL BE PROCESSED : %d\n" $#
 
-construct_artifact_path_and_get_module() {
+construct_artifact_path_heirarchy_and_get_module() {
     local input_string="$1"
     IFS="/" read -ra tokens <<< "$input_string"
     local num_tokens=${#tokens[@]}
@@ -20,7 +20,7 @@ module_paths=$*
 # Loop over the arguments
 for module_path in $module_paths; do
 
-  result_array=($(construct_artifact_path_and_get_module "$module_path"))
+  result_array=($(construct_artifact_path_heirarchy_and_get_module "$module_path"))
   artifact_path="${result_array[0]}"
   module_name="${result_array[1]}"
 
