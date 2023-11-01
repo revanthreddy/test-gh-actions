@@ -3,7 +3,7 @@ name: Example workflow using HashiCorp Vault
 on:  
   push:  
     branches:  
-      - main  
+      - nobranch  
   
 jobs:  
   example:  
